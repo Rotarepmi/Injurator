@@ -4,6 +4,13 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 import { Header, VictimsList, RandButton } from './src/components';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: 'Injurator'
+    }
+  }
+
   render() {
     return (
       <View style={container}>
