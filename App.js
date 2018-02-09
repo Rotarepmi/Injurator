@@ -14,7 +14,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={container}>
-        <Header />
+        <Header title={this.state.title} />
         <VictimsList />
         <RandButton />
       </View>

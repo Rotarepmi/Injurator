@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Header = () => {
-  return (
-    <View style={headerContainer}>
-      <Text style={headerText}>
-        Injurator
-      </Text>
-    </View>
-  );
+class Header extends Component {
+  render() {
+    return (
+      <View style={headerContainer}>
+        <Text style={headerText}>
+          {this.props.title}
+        </Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
