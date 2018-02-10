@@ -11,5 +11,3 @@ const firebaseConfig = {
 };
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
-export const injuryRef = firebase.database().ref('injury');
-export const placeRef = firebase.database().ref('place');
