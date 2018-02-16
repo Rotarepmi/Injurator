@@ -60,7 +60,7 @@ export default class App extends Component {
     }
 
     function randomVictim(injuries) {
-      const rInjury = random(0, injuries.length);
+      const rInjury = random(0, injuries.length-1);
       const rAge = random(0, 100);
       const rAware = random(0, 1);
       const rLive = random(0, 1);
@@ -73,8 +73,8 @@ export default class App extends Component {
       };
     }
 
-    const rEvent = random(0, this.state.events.length);
-    const rPlace = random(0, this.state.places.length);
+    const rEvent = random(0, this.state.events.length-1);
+    const rPlace = random(0, this.state.places.length-1);
     const rSec = random(0, 86400);
     const myDate = new Date(1000 * rSec).toISOString().substr(11, 8).replace(/^[0:]+/, "");
     const rVict = random(1, 6);
