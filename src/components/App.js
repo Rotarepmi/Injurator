@@ -11,6 +11,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
+    console.ignoredYellowBox = ['Setting a timer'];
+
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
     this.state = {
@@ -18,6 +20,7 @@ export default class App extends Component {
       events: [],
       places: [],
       injuries: [],
+      livesigns: [],
       throwEvent: {},
       throwVictims: ds
     }
@@ -25,6 +28,7 @@ export default class App extends Component {
     this.eventRef = this.getRef().child('event');
     this.placeRef = this.getRef().child('place');
     this.injuryRef = this.getRef().child('injury');
+    this.livesignsRef = this.getRef().child('livesigns');
   }
 
   getRef() {
@@ -52,6 +56,7 @@ export default class App extends Component {
     this.getFromRef(this.eventRef, 'events');
     this.getFromRef(this.placeRef, 'places');
     this.getFromRef(this.injuryRef, 'injuries');
+    this.getFromRef(this.livesignsRef, 'livesigns');
   }
 
   randomize() {
@@ -59,17 +64,17 @@ export default class App extends Component {
       return Math.floor(Math.random()*(max-min+1)+min);
     }
 
-    function randomVictim(injuries) {
+    function randomVictim(injuries, livesigns) {
       const rInjury = random(0, injuries.length-1);
       const rAge = random(0, 100);
       const rAware = random(0, 1);
-      const rLive = random(0, 1);
+      const rLivesigns = random(0, livesigns.length-1);
 
       return {
         injury: injuries[rInjury].name,
         age: rAge,
-        aware: rAware,
-        live: rLive
+        aware: livesigns[rLivesigns].name === "brak oznak życia" ? 0 : rAware,
+        livesigns: livesigns[rLivesigns].name
       };
     }
 
@@ -81,7 +86,7 @@ export default class App extends Component {
 
     let victims = [];
     for(let i=0; i<rVict; i++) {
-      victims.push(randomVictim(this.state.injuries));
+      victims.push(randomVictim(this.state.injuries, this.state.livesigns));
     }
 
     this.setState({

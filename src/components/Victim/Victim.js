@@ -10,13 +10,13 @@ export default class Victim extends Component {
           Wiek: <Text style={styles.bold}>{this.props.victim.age}</Text>
         </Text>
         <Text style={styles.list}>
-          Świadomość: <Text style={styles.bold}>{this.props.victim.aware ? 'przytomny' : 'nieprzytomny'}</Text>
+          Świadomość: <Text style={styles.bold}>{this.props.victim.aware ? 'osoba przytomna' : 'osoba nieprzytomna'}</Text>
         </Text>
         <Text style={styles.list}>
-          Oznaki życia: <Text style={styles.bold}>{this.props.victim.live ? 'oddycha' : 'nie oddycha'}</Text>
+          Oznaki życia: <Text style={styles.bold}>{this.props.victim.livesigns}</Text>
         </Text>
         <Text style={styles.list}>
-          Obrażenia: <Text style={styles.bold}>{this.props.victim.injury}</Text>
+          Znane obrażenia: <Text style={styles.bold}>{this.props.victim.injury}</Text>
         </Text>
       </View>
     );
