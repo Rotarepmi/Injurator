@@ -11,3 +11,10 @@ App is build for medical emergency students, to provide random emeregncy situati
 * [Atom](https://atom.io/) - Code editor
 
 ![Screenshot](screenshot.png)
+
+## To do
+
+* Redux
+* Event customization interface for users
+* Registration
+* Functionality to supplement database
